@@ -92,23 +92,6 @@ All outputs land under `reports/<serial>_<timestamp>/`:
 
 ---
 
-## Assumptions
-
-> These are placeholders aligned with the Annexure. **Confirm with the lead engineer before running on flight hardware.**
-
-| Parameter | Default |
-|---|---|
-| Load slew | 1 A/µs (overridable in YAML) |
-| Step size | 10 % → 90 % of rated `i_max` per rail |
-| Pass criterion — voltage deviation | `\|ΔV\|` < 5 % of `v_nom` |
-| Pass criterion — settling time | < 50 µs |
-| Scope sample rate | 1 GS/s |
-| Scope capture window | 200 µs |
-| Scope bandwidth limit | 20 MHz |
-| Scope coupling | AC |
-
----
-
 ## Safety
 
 - Supply **current limit is set before the output is enabled**.
