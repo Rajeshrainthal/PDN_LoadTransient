@@ -13,7 +13,6 @@ Drives a Keithley 2230 supply, a Keithley 2380 electronic load, a Keysight DSOX6
 - [Repo Layout](#repo-layout)
 - [Running](#running)
 - [Outputs](#outputs)
-- [Assumptions](#assumptions)
 - [Safety](#safety)
 
 ---
