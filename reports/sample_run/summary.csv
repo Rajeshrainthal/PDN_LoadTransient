@@ -1,0 +1,5 @@
+rail,n,passed,failed,yield_pct,undershoot_mean_mV,undershoot_std_mV,undershoot_min_mV,undershoot_max_mV,overshoot_mean_mV,overshoot_std_mV,overshoot_min_mV,overshoot_max_mV,settling_mean_us,settling_std_us,settling_min_us,settling_max_us
++3V6,10,10,0,100.0,122.154,1.894,120.083,126.082,9.953,1.301,8.362,12.393,4.525,0.223,4.25,4.85
++1V8,10,0,10,0.0,121.813,2.303,118.161,125.552,10.778,0.713,9.823,11.769,10.75,0.588,10.05,12.15
++3V3,10,10,0,100.0,122.505,1.479,120.432,124.716,10.622,1.098,9.194,12.422,5.195,0.134,5.0,5.4
++2V5,10,10,0,100.0,122.11,1.546,119.927,124.493,10.465,1.161,9.416,13.193,7.54,0.335,7.15,8.0

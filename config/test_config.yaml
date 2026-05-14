@@ -1,0 +1,53 @@
+# Test configuration for the satellite-payload PDN load transient test.
+# Assumptions are called out per field. Edit before running on flight HW.
+
+instruments:
+  power_supply: "USB0::0x05E6::0x2230::INSTR"     # Keithley 2230-30-1
+  electronic_load: "USB0::0x05E6::0x2380::INSTR"  # Keithley 2380 Series
+  oscilloscope: "USB0::0x2A8D::0x0398::INSTR"     # Keysight DSOX6004A
+  dmm: "USB0::0x05E6::0x6500::INSTR"              # Keithley DMM6500
+  timeout_ms: 10000
+
+supply:
+  v_input: 5.0          # +5V regulated input to PDN
+  i_limit: 5.0          # Total bench current limit, generous margin
+
+# One entry per rail under test.
+# i_low and i_high are absolute amps (we compute them as 10% / 90% of i_max
+# in the sequencer if not overridden here).
+rails:
+  - name: "+3V6"
+    v_nom: 3.6
+    i_max: 2.5
+    scope_channel: 1
+    eload_channel: 1
+  - name: "+1V8"
+    v_nom: 1.8
+    i_max: 3.0
+    scope_channel: 2
+    eload_channel: 2
+  - name: "+3V3"
+    v_nom: 3.3
+    i_max: 3.0
+    scope_channel: 3
+    eload_channel: 3
+  - name: "+2V5"
+    v_nom: 2.5
+    i_max: 1.5
+    scope_channel: 4
+    eload_channel: 4
+
+transient:
+  slew_a_per_us: 1.0          # Load slew rate, A/µs (Annexure default)
+  step_low_pct: 0.10          # i_low  = 10% of i_max
+  step_high_pct: 0.90         # i_high = 90% of i_max
+  repeats_per_rail: 10        # Captures per rail for statistics
+  pre_trigger_us: 50
+  capture_window_us: 200
+  scope_sample_rate: 1.0e9    # 1 GS/s
+  scope_bw_limit_mhz: 20      # 20 MHz BW limit for clean ripple read
+
+acceptance:
+  max_deviation_pct: 0.05     # |ΔV| < 5% of v_nom
+  max_settling_us: 50.0       # Settling within 50 µs
+  settling_band_pct: 0.02     # ±2% band defines "settled"
